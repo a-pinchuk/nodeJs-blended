@@ -1,17 +1,23 @@
 {
-  "name": "node_blended",
+  "name": "blended",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "cross-env andrii=potato alex=borsh node server.js"
+    "start": "node backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "nodemon backend/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cross-env": "^7.0.3"
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "mongoose": "^7.1.0",
+    "nodemon": "^2.0.22"
   }
 }
