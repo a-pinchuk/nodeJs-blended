@@ -1,6 +1,7 @@
 // http://localhost:62000/api/v1/movies
 const moviesRoutes = require('express').Router();
 const moviesController = require('../controllers/MoviesController');
+const rolesMiddleware = require('../middleware/rolesMiddleware');
 
 //Додати ФІЛЬМ в базу
 moviesRoutes.post(
@@ -12,7 +13,7 @@ moviesRoutes.post(
   moviesController.add
 );
 //Отримати всі фільми
-moviesRoutes.get('/movies', moviesController.getAll);
+moviesRoutes.get('/movies', rolesMiddleware(['ADMIN', 'MODERATOR']), moviesController.getAll);
 //Отримати один фільм
 moviesRoutes.get('/movies/:id', moviesController.getOne);
 //Обновити фільм
